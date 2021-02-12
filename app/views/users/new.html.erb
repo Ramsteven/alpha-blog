@@ -1,0 +1,33 @@
+<h1>You can create a new user</h1>
+
+<%= form_with scope: :user, url: users_path, local: true do |f| %>
+  <p>
+  <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.label :description %><br/>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+  <%= f.label :twitter %><br/>
+    <%= f.text_field :twitter %>
+  </p>
+
+  <p>
+  <%= f.label :facebook %><br/>
+    <%= f.text_field :facebook %>
+  </p>
+
+  <p>
+  <%= f.label :instagram %><br/>
+    <%= f.text_field :instagram %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+
+<% end %>
