@@ -1,5 +1,13 @@
 <h1>You can create a new user</h1>
 
+<% if @user.errors.any? %>
+  <h2>This errors prevent the register of the user</h2>
+  <% @user.errors.full_messages.each do |msg| %>
+    <%= msg %>
+  <% end %>
+<% end %>
+
+
 <%= form_with scope: :user, url: users_path, local: true do |f| %>
   <p>
   <%= f.label :name %><br/>
@@ -28,6 +36,4 @@
   <p>
     <%= f.submit %>
   </p>
-
-
 <% end %>
