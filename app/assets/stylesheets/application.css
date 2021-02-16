@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+ *= require font-awesome
+ */
+
+ .card-text{
+    font-size:15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

@@ -1,4 +1,19 @@
-<h1>Welcome to profile of <%= @user.name %></h1>
+<div class="row justify-content-md-center align-items-center"> 
+<h1 class="text-center">Welcome to profile of <%= @user.name %></h1>
+  <div class="card text-white bg-primary mb-3 text-center" style="max-width: 18rem;">
+    <div class="card-header .mx-auto">Profile</div>
+    <div class="card-body display-5">
+      <h5 class="card-title"><%= @user.name %></h5>
+        <p class="card-text"><strong>Description: </strong> <%= @user.description %></p>
+        <p class="card-text"><strong>facebook </strong> <%= @user.facebook %></p>
+        <p class="card-text"><strong>twitter: </strong> <%= @user.twitter %></p>
+        <p class="card-text"><strong>Instagram: </strong> <%= @user.instagram %></p>
+        <p>
+          <%= link_to 'Return to list of users', users_path, method: :get %> | 
+          <%= link_to 'Edit', edit_user_path(@user), method: :get %> | 
+          <%= link_to 'Delete', user_path(@user), method: :delete %> 
+        </p>
 
-<p><strong>Title: </strong><%= @user.name %></p>
-<p><strong>Description: </strong> <%= @user.description %></p>
+    </div>
+  </div>
+
