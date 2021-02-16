@@ -4,10 +4,10 @@
     <div class="card-header .mx-auto">Profile</div>
     <div class="card-body display-5">
       <h5 class="card-title"><%= @user.name %></h5>
-        <p class="card-text"><strong>Description: </strong> <%= @user.description %></p>
-        <p class="card-text"><strong>facebook </strong> <%= @user.facebook %></p>
-        <p class="card-text"><strong>twitter: </strong> <%= @user.twitter %></p>
-        <p class="card-text"><strong>Instagram: </strong> <%= @user.instagram %></p>
+      <p class="card-text card-title"><u>Description</u>: <span>  <%= @user.description %> </span></p>
+      <p class="card-text"> <u>facebook</u>: <span><%= @user.facebook %></span></p>
+      <p class="card-text"><u> twitter</u>: <span><%= @user.twitter %></span></p>
+      <p class="card-text"> <u>Instagram</u>: <span><%= @user.instagram %></span></p>
         <p>
           <%= link_to 'Return to list of users', users_path, method: :get %> | 
           <%= link_to 'Edit', edit_user_path(@user), method: :get %> | 
