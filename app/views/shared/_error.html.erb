@@ -1,9 +1,12 @@
-  <% if @user.errors.any? %>
-  <h2>The following errors prevented the user from being saved</h2>
-  <ul>
+<% if @user.errors.any? %>
+<div class="alert alert-dismissible alert-danger fade show" role="alert">
+ <h2>The following errors prevented the user from being saved</h2>
     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+          <button type="button" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+            <span aria-hidden="true">&times;</span>
+            </button>  
+          <%= msg %><br>
     <% end %>
-  </ul>
-  <% end %>
+</div>
+<% end %>
 
