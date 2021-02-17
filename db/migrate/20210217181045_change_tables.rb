@@ -14,6 +14,7 @@ class ChangeTables < ActiveRecord::Migration[6.1]
 
   def change
     rename_column :users, :description, :email
+    rename_column :users, :name, :username
     create_table :socials do |t|
       t.string :name
       t.string :link
