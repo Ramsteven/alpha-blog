@@ -1,43 +1,15 @@
 <%= render 'shared/error' %>
-<%= form_for @user do |f| %>
-    <%= f.label :username%>
-    <%= f.text_field :username%>
-
-    <%= f.label :email %> 
-    <%= f.text_field :email%>
-    <br>
-    <br>
-    <br>
-    <h2>Social Media </h2>
-
-
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Social Media</th>
-      <th scope="col">Link</th>
-      <% unless @user.id.nil?  %>
-        <th scope="col">Check for delete</th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <%= f.fields_for :socials do | b |  %>
-      <tr>
-        <td> <%= b.text_field :name %> </td> 
-        <td> <%= b.text_field :link %></td>
-
-        <% unless @user.id.nil?  %>
-          <td><%= b.check_box :_destroy %></td>
-        <% end %>
-      </tr>
-    
-    <% end %>
- </tbody>
-    </table>
-
-  <%= f.submit %>
-<% end %>
-
+<%= simple_form_for @user do |f| %>
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.simple_fields_for :socials do |b| %>
+    <div id=”fieldsetContainer”>
+      <fieldset id="0">
+        <%= b.input :name %>
+        <%= b.input :link %>
+      <% end%>
+      </fieldset>
+    </div>
+  <%= f.button :submit %>
+<% end%>
 <%= link_to 'Return to list of users', users_path, method: :get %>
