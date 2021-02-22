@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user.socials.build
   end
 
   def update
@@ -48,6 +47,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_desroy))
+    params
+    .require(:user)
+    .permit(:username, :email, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_destroy))
   end 
 end

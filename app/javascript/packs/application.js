@@ -7,7 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "@oddcamp/cocoon-vanilla-js";
+/*import "@oddcamp/cocoon-vanilla-js";*/
 import "jquery"
 import "@nathanvda/cocoon"
 
@@ -15,9 +15,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).on("turbolinks:load", function(){
+/*$(document).on("turbolinks:load", function(){
 
-    $('form').on('click', '.add_fields', function(event){
+  console.log("hole")
+   $('form').on('click', '.add_social', function(event){
     var regexp, time;
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'),'g');
@@ -33,6 +34,6 @@ $(document).on("turbolinks:load", function(){
     });
 
 
-    });
+})*/
 
 
