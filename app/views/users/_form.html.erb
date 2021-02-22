@@ -1,13 +1,21 @@
 <%= render 'shared/error' %>
-<%= simple_form_for @user do |f| %>
-    <%= f.input :username%>
+<%= form_for @user do |f| %>
+    <%= f.label :username%>
+    <%= f.text_field :username%>
 
-    <%= f.input :email %> 
+    <%= f.label :email %> 
+    <%= f.text_field :username%>
 
-      <%= f.simple_fields_for :socials, {class: 'inline-block m-3'} do | b |  %>
-              <%= b.input :name, wrapper: :dynamic %>
+    <%= f.fields_for :socials, {class: 'inline-block m-3'} do | b |  %>
+
+        <%= b.label :name %>
+        <%= b.text_field :name %>
+
+        <%= b.label :link %>
+        <%= b.text_field :link %>
+
       <% end %>
-  <%= f.button :submit %>
+  <%= f.submit %>
 <% end %>
 
 <%= link_to 'Return to list of users', users_path, method: :get %>
