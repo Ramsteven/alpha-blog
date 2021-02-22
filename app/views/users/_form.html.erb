@@ -1,20 +1,30 @@
 <%= render 'shared/error' %>
 <%= simple_form_for @user do |f| %>
-  <%= f.text_field :username %>
-  <%= f.text_field :email %>
-  <%= f.simple_fields_for :socials do |b| %>
-    <div id="fieldsetContainer">
-      <fieldset id="0">
-        <%= b.input :name %>
-        <%= b.input :link %>
-      <% end%>
-      </fieldset>
-    </div>
-    <div>
-      <button type="button" id="addBook">Add more books</button>
-    </div>
-    <div>
-      <%= f.submit "New User" %>
+  <div class="form-inputs">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <td></td>
+      <td>Social Media</td>
+      <td>Link</td>
+    </tr>
+    </thead>
+    <tbody class="fields">
+      <%= f.simple_fields_for :socials do |b| %>
+        <%= render 'social', f: b %>
+      <%end%>
+    </tbody>
+  </table>
+
+
+    <div class="form-actions">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= link_to_add_row("Add Social Media", f, :socials, class: 'btn btn-secondary' )%>
     </div>
 <% end%>
-<%= link_to 'Return to list of users', users_path, method: :get %>
+<%= link_to 'Return to list of users', users_path, method: :get , class: 'btn btn-ligth'  %>
