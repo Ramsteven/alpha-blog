@@ -6,5 +6,5 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 105 }, uniqueness: {case_sensitive: false }, format: { with: VALID_EMAIL_REGEX} 
 
   accepts_nested_attributes_for :socials, allow_destroy: true,
-  reject_if: lambda {|attributes| attributes['kind'].blank?}
+  reject_if: :all_blank
 end

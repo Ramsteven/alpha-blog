@@ -13,10 +13,10 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-import { addBook } from ‘addBook’
+import { addBook } from "./addBook"
 
-document addEventListener(‘turbolinks:load’, ()=> {
-  if (document.querySelector(‘#fieldsetContainer’)) {
+document.addEventListener("turbolinks:load", ()=> {
+  if (document.querySelector("#fieldsetContainer")) {
     addBook()
   }
 })

@@ -1,15 +1,20 @@
 <%= render 'shared/error' %>
 <%= simple_form_for @user do |f| %>
-  <%= f.input :username %>
-  <%= f.input :email %>
+  <%= f.text_field :username %>
+  <%= f.text_field :email %>
   <%= f.simple_fields_for :socials do |b| %>
-    <div id=”fieldsetContainer”>
+    <div id="fieldsetContainer">
       <fieldset id="0">
         <%= b.input :name %>
         <%= b.input :link %>
       <% end%>
       </fieldset>
     </div>
-  <%= f.button :submit %>
+    <div>
+      <button type="button" id="addBook">Add more books</button>
+    </div>
+    <div>
+      <%= f.submit "New User" %>
+    </div>
 <% end%>
 <%= link_to 'Return to list of users', users_path, method: :get %>
