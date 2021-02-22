@@ -24,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user.socials.build 
   end
 
   def update

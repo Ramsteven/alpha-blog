@@ -5,5 +5,6 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 105 }, uniqueness: {case_sensitive: false }, format: { with: VALID_EMAIL_REGEX} 
 
-  accepts_nested_attributes_for :socials, allow_destroy: true
+  accepts_nested_attributes_for :socials, allow_destroy: true,
+  reject_if: lambda {|attributes| attributes['kind'].blank?}
 end
