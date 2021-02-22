@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new; @user.socials.build; @user.socials.build
+    @user = User.new; @user.socials.build;
   end
 
   def create
