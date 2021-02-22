@@ -1,33 +1,25 @@
 <h1>Welcome here are all the users</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Twitter</th>
-      <th scope="col">Facebook</th>
-      <th scope="col">Instagram</th> 
-      <th colspan="3" scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <th scope="row"><span><%= user.id %></span></th>
-      <td><span><%=user.name %></span></td>
-      <td><span><%=user.description %></span></td>
-      <td><a href="#"><%=user.twitter %></a></td>
-      <td><a href="#"><%=user.facebook %></a></td>
-      <td><a href="#"><%=user.instagram %></a></td>
-      <td><%= link_to 'Show', user_path(user) %></td>  
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>  
-      <td><%= link_to 'Delete', user_path(user), method: :delete %></td> 
-    </tr>
-    <% end %>  
-    </tbody>
-</table>
-<p>
-<td><%= button_to 'New User', new_user_path, method: :get  %></td>  
-</p>
+<%= button_to 'New User', new_user_path, method: :get  %></td>  
+<div class="d-flex align-content-around flex-wrap m-3">
+<% @users.each do |user| %>
+
+<div class="card text-white bg-primary m-3 text-center style="max-width: 18rem;">
+    <div class="card-header .mx-auto"><%= user.username %>'s Profile</div>
+    <div class="card-body display-5 text-center">
+      <p class="card-text card-title"><u>email</u>: <span>  <%= user.email %> </span></p>
+
+      <% user.socials.each do |media| %>
+      <p class="card-text"> <u><%= media.name %></u>: <span><%= media.link %></span></p>
+    <% end %>
+    <%= link_to 'Show', user_path(user), method: :get, class: "btn btn-info btn-sm text-light" %> <br> 
+
+        <p class="text-center inline-block">
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <%= link_to 'Edit', edit_user_path(user), method: :get, class: "btn btn-info btn-sm text-light m-1" %>  
+          <%= link_to 'Delete', user_path(user), method: :delete,  class: "btn btn-danger btn-sm text-light m-1" %>
+        </div> 
+        </div>
+    </div>
+  <% end %>
+</div>

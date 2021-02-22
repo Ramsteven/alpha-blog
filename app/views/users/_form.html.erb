@@ -1,34 +1,13 @@
 <%= render 'shared/error' %>
-<%= form_with(model: @user, local: true) do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
+<%= simple_form_for @user do |f| %>
+    <%= f.input :username%>
 
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p>
+    <%= f.input :email %> 
 
-  <p>
-    <%= f.label :twitter   %>
-    <%= f.text_field :twitter %>
-  </p>
-
-  <p>
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook %>
-  </p>
-
-  <p>
-    <%= f.label :instagram %>
-    <%= f.text_field :instagram %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
+      <%= f.simple_fields_for :socials, {class: 'inline-block m-3'} do | b |  %>
+              <%= b.input :name, wrapper: :dynamic %>
+      <% end %>
+  <%= f.button :submit %>
 <% end %>
 
-
-<%= link_to 'Return to list of users', users_path, method: :get %>  
+<%= link_to 'Return to list of users', users_path, method: :get %>

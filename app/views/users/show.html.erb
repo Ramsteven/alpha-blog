@@ -1,12 +1,13 @@
 <div class="row justify-content-md-center align-items-center"> 
 <h1 class="text-center">Welcome!</h1>
   <div class="card text-white bg-primary mb-3 text-center" style="max-width: 18rem;">
-    <div class="card-header .mx-auto"><%= @user.name %>'s Profile</div>
+    <div class="card-header .mx-auto"><%= @user.username %>'s Profile</div>
     <div class="card-body display-5 text-center">
-      <p class="card-text card-title"><u>Description</u>: <span>  <%= @user.description %> </span></p>
-      <p class="card-text"> <u>facebook</u>: <span><%= @user.facebook %></span></p>
-      <p class="card-text"><u> twitter</u>: <span><%= @user.twitter %></span></p>
-      <p class="card-text"> <u>Instagram</u>: <span><%= @user.instagram %></span></p>
+      <p class="card-text card-title"><u>email</u>: <span>  <%= @user.email %> </span></p>
+
+      <% @user.socials.each do |media| %>
+      <p class="card-text"> <u><%= media.name %></u>: <span><%= media.link %></span></p>
+      <% end %>
         <p class="text-center inline-block">
         <%= button_to 'Return to list', users_path, method: :get ,  class: "btn btn-secondary btn-sm" %>  
         <div class="btn-group" role="group" aria-label="Basic example">
@@ -15,4 +16,4 @@
         </div> 
         </div>
     </div>
-  </div>
+</div>

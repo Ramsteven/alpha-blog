@@ -10,11 +10,11 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    @user = User.new; @user.socials.build; @user.socials.build
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(params.require(:user).permit(:username, :email, socials_attributes: [:name, :link]))
     if @user.save
       flash[:nortice] = "User was created succesfully"
       redirect_to user_path(@user)
@@ -24,10 +24,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user.socials.build 
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(params.require(:user).permit(:username, :email, socials_attributes: [:id, :name, :link, :_destroy]))
+    #if @user.update(user_params)
       flash[:notice] = "User was updated successfully."
       redirect_to @user
     else
@@ -46,6 +48,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :description, :twitter, :facebook, :instagram)
+    params.require(:user).permit(:username, :email)
   end 
 end

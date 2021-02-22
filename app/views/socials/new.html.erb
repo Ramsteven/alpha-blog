@@ -1,0 +1,21 @@
+<h1>crate new solcial media</h1>
+
+<%= form_with model: [@user, @social] do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, value: @social.name %>
+  </p>
+
+  <p>
+    <%= f.label :link  %>
+    <%= f.text_field :link, value: @social.link %>
+  </p>
+
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Return to list of users', users_path, method: :get %>  

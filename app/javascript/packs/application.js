@@ -11,3 +11,25 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+import { addBook } from ‘addBook’
+
+document addEventListener(‘turbolinks:load’, ()=> {
+  if (document.querySelector(‘#fieldsetContainer’)) {
+    addBook()
+  }
+})
+
+function removeField() {
+  document.body.addEventListener("click", (e) => {
+    if ( e.target.nodeName === "A" &&
+         e.target.parentNode.previousElementSibling) {
+
+/* to prevent from removing the first fieldset as it's previous sibling is null */
+
+      e.target.parentNode.remove();
+    }
+  });
+}
+
