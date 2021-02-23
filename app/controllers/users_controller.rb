@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:nortice] = "User was created succesfully"
+      flash[:nortice] = "Welcome #{@user.username} your account was created succesfully"
       redirect_to user_path(@user)
     else
       render 'new'
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     #if @user.update(user_params)
       flash[:notice] = "User was updated successfully."
       redirect_to @user
-    else
+    else 
       render 'edit'
     end
   end
@@ -49,6 +49,6 @@ class UsersController < ApplicationController
   def user_params
     params
     .require(:user)
-    .permit(:username, :email, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_destroy))
+    .permit(:username, :email, :password, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_destroy))
   end 
 end

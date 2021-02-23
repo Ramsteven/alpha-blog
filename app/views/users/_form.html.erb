@@ -1,10 +1,18 @@
-<%= render 'shared/error' %>
+<%= render 'shared/error', obj: @user %>
 <%= simple_form_for @user do |f| %>
   <div class="form-inputs m-4">
-    Username
-    <%= f.text_field :username %> 
-    Email
-    <%= f.text_field :email %>
+
+    <div class="m-2">
+      <%= f.input :username, :label => "Username", placeholder: "Enter an username" %> 
+    </div>
+    <div class="m-2">
+      <%= f.input :email, :as => :string, placeholder: "Enter your email"  %>
+    </div>
+
+    <div class="m-2">
+      <%= f.input :password , placeholder: "Choose a password", class: "m-4" %>
+    </div>
+
   </div>
   <hr>
   <table class="table">
@@ -24,7 +32,7 @@
 
 
     <div class="form-actions">
-      <%= f.button :submit, class: 'btn btn-success' %>
+      <%= f.submit(@user.new_record? ? "Sign Up": "Update account" , class: 'btn btn-success') %>
       <%= link_to_add_association "Add social Media", f, :socials, class: "btn btn-primary text-light", data: {
         association_insertion_node: '.socials', association_insertion_method: :append } %>
     </div>
