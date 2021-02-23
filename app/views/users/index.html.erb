@@ -1,7 +1,8 @@
 <h1>Welcome here are all the users</h1>
 
 <%= link_to 'New User', new_user_path, method: :get , class: "btn btn-success text-light btn-sm btn-outline-dark"  %></td>  
-<div class="d-flex align-content-around flex-wrap m-3">
+
+<div class="d-flex align-content-around flex-wrap m-3 ">
 <% @users.each do |user| %>
 
 <div class="card text-white bg-primary m-3 text-center style="max-width: 18rem;">
@@ -23,3 +24,7 @@
     </div>
   <% end %>
 </div>
+<div class="flickr_pagination text-center"> 
+  <%= will_paginate @users , :container => false%>
+</div>
+
