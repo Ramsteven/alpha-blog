@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   resources :users do
     resources :socials, shallow: true
   end 
-  get 'singup', to: "users#new"
+  get 'signup', to: "users#new"
+
+  #handler session
+  get 'login', to: "sessions#new"
+  post 'login', to: "sessions#create"
+  delete 'login', to: "sessions#destroy"
 end

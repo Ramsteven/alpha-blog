@@ -7,4 +7,14 @@ module ApplicationHelper
  # end
  # link_to(name, "#", class: "add_fields " + args[:class], data: {id: id, fields: fields.gsub("\n", "")})
  # end
+  
+
+ def current_user
+   @current_user ||= User.find(session[:user_id]) if session[:user_id]
+ end
+
+ def logged_in?
+  !!current_user
+ end
+
 end
