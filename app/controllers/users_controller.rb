@@ -49,6 +49,6 @@ class UsersController < ApplicationController
   def user_params
     params
     .require(:user)
-    .permit(:username, :email, :password, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_destroy))
+    .permit(:username, :email, :password, :avatar, socials_attributes: Social.attribute_names.map(&:to_sym).push(:_destroy))
   end 
 end

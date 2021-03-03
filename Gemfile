@@ -26,6 +26,7 @@ gem "cocoon"
 ##font awesome
 gem "font-awesome-rails"
 
+gem 'image_processing', '~> 1.2'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
