@@ -1,24 +1,35 @@
-# README
+## Alpha Blog
+this app was create with: 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+    Ruby on Rails 6.1.3, 
+    ruby 3.0.0, 
+    PostgreSQL database manager, 
+    S3 bucket how Storage system,
+    API https://avatars.dicebear.com/docs for generate avatars dinamically.
 
-Things you may want to cover:
+install ruby and ruby on rails with this guide => https://guides.rubyonrails.org/getting_started.html
 
-* Ruby version
+## Deploy Version:
+Here you can go to the deploy version: https://enigmatic-sands-44491.herokuapp.com/
+Or if your want install locally follow the instalation below.
 
-* System dependencies
+## Installation
+Follow these easy steps to install and start the app:
+        
+Clone folder and go to the folder:
 
-* Configuration
+    cd alpha-blog
 
-* Database creation
+Inside of folder in the console
 
-* Database initialization
+    run: rails db:migrate
 
-* How to run the test suite
+Install bootstrap jquerry and popper with this commands, if you dont have yarn [install here ](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 
-* Services (job queues, cache servers, search engines, etc.)
+    yarn add bootstrap jquery popper.js
 
-* Deployment instructions
+Now for un the app local run:
 
-* ...
+    rails server
+
+Go to browser and type localhost:3000 and hit enter and welcome to alphablog.
